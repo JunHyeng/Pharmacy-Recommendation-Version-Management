@@ -93,7 +93,7 @@ class PharmacyRepositoryServiceTest extends AbstractIntegrationContainerBaseTest
         when:
         def pharmacy = pharmacyRepository.save(input)
         pharmacyRepositoryService.startReadOnlyMethod(pharmacy.id)
-        
+
         then:
         def result = pharmacyRepositoryService.findAll()
         result.get(0).getPharmacyAddress() == inputAddress
